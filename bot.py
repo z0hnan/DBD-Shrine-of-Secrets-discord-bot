@@ -1,8 +1,10 @@
 #pip install discord
+#pip install selenium
 import discord
 import datetime
 import asyncio
- 
+from selenium import webdriver
+
 intents = discord.Intents.all()
 client = discord.Client(command_prefix='!', intents=intents,activity=discord.Game(name='Dead by Daylight'))
 
@@ -15,6 +17,27 @@ async def on_ready():
         
         if now.weekday() == 2 and now.hour == 5:
             
+            options = webdriver.ChromeOptions()
+            options.add_argument("--headless")
+
+            def screenshot_website(url):
+                # Create a new instance of the Chrome driver
+                driver = webdriver.Chrome(chrome_options=options)
+                # Navigate to the desired website
+                driver.get(url)
+                # Get the screenshot
+                driver.save_screenshot('screenshot.png')
+                # Close the browser
+                driver.quit()
+
+            if __name__ == '__main__':
+                url = 'https://dbd.tricky.lol/shrine'
+                screenshot_website(url)
+                print("Screenshot saved as screenshot.png")
+
+
+
+
             user = await client.fetch_user(262321327992471553)
             user2 = await client.fetch_user(410841879161339905)
             
