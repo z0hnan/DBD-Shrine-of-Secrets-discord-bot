@@ -21,13 +21,13 @@ async def on_ready():
             options.add_argument("--headless")
 
             def screenshot_website(url):
-                # Create a new instance of the Chrome driver
+                
                 driver = webdriver.Chrome(chrome_options=options)
-                # Navigate to the desired website
+                
                 driver.get(url)
-                # Get the screenshot
+                
                 driver.save_screenshot('screenshot.png')
-                # Close the browser
+                
                 driver.quit()
 
             if __name__ == '__main__':
