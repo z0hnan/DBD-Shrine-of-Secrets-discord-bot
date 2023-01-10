@@ -1,3 +1,4 @@
+#pip install discord
 import discord
  
 intents = discord.Intents.all()
@@ -13,6 +14,9 @@ async def on_message(message):
     if message.author == client.user:
         return
  
+    if message.content.startswith('hi'):
+        await message.channel.send('Hello!')
+
     if message.content.startswith('shrine?'):
         await message.channel.send(file=discord.File('screenshot.png'))
         await message.channel.send('@z0hnan Here is the new Shrine!')
