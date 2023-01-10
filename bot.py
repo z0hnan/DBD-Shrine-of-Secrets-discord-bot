@@ -1,8 +1,7 @@
 #pip install discord
-#pip install schedule
 import discord
-import time
-import schedule
+import datetime
+import asyncio
  
 intents = discord.Intents.all()
 client = discord.Client(command_prefix='!', intents=intents,activity=discord.Game(name='Dead by Daylight'))
@@ -10,13 +9,20 @@ client = discord.Client(command_prefix='!', intents=intents,activity=discord.Gam
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    while True:
+        
+        now = datetime.datetime.now()
+        
+        if now.weekday() == 2 and now.hour == 5:
+            
+            user = await client.fetch_user(262321327992471553)
+            user2 = await client.fetch_user(410841879161339905)
+            
+            await user.send(file=discord.File('screenshot.png'))
+            await user.send("Here is the new Shrine!")
+            await user2.send(file=discord.File('screenshot.png'))
+            await user2.send("Here is the new Shrine!")
+        
+        await asyncio.sleep(3600)
 
-def job():
-    #user = client.get_user(262321327992471553)
-    #user.send(file=discord.File('screenshot.png'))
-    #user.send("Here is the new Shrine!")
-    print("JOB")
-
-
-
-client.run('MTA2MjA2Mjc4NTQwNTY1MzAzMg.GSjSpz.s2nUkSDWCaEgaLLFI2g1dSSwZw8gWlgY5vypbg')
+client.run('MTA2MjA2Mjc4NTQwNTY1MzAzMg.Gw541F.DfeFJw-pDxAgd6gVbYGHGLYDtYQxGfSyiwCI2s')
