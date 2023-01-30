@@ -48,4 +48,4 @@ async def on_ready():
         
         await asyncio.sleep(3600)
 
-client.run('MTA2MjA2Mjc4NTQwNTY1MzAzMg.GG7uBD.7srWcTHApNPXmgTLFwQlvE3N6fX9ga7Uvmw7NQ')
+client.run('your discord token here')
