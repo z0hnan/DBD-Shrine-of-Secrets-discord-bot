@@ -38,8 +38,7 @@ async def on_ready():
 
 
 
-            user = await client.fetch_user(262321327992471553)
-            user2 = await client.fetch_user(410841879161339905)
+            user = await client.fetch_user('add your discord user id here')
             
             await user.send(file=discord.File('screenshot.png'))
             await user.send("Here is the new Shrine!")
